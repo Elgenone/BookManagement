@@ -52,6 +52,7 @@
             // 
             this.bPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bPrice.Enabled = false;
             this.bPrice.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bPrice.ForeColor = System.Drawing.Color.White;
             this.bPrice.HintForeColor = System.Drawing.Color.Empty;
@@ -73,6 +74,7 @@
             // 
             this.bAuthor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bAuthor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bAuthor.Enabled = false;
             this.bAuthor.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAuthor.ForeColor = System.Drawing.Color.White;
             this.bAuthor.HintForeColor = System.Drawing.Color.Empty;
@@ -127,6 +129,7 @@
             // 
             this.bName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bName.Enabled = false;
             this.bName.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bName.ForeColor = System.Drawing.Color.White;
             this.bName.HintForeColor = System.Drawing.Color.Empty;
@@ -158,7 +161,7 @@
             // bCover
             // 
             this.bCover.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bCover.Image = global::Book_Mangement.Properties.Resources.images;
+            this.bCover.Enabled = false;
             this.bCover.Location = new System.Drawing.Point(133, 293);
             this.bCover.Name = "bCover";
             this.bCover.Size = new System.Drawing.Size(198, 172);
@@ -170,6 +173,7 @@
             // 
             this.bRate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bRate.BackColor = System.Drawing.Color.Transparent;
+            this.bRate.Enabled = false;
             this.bRate.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bRate.ForeColor = System.Drawing.Color.SeaGreen;
             this.bRate.Location = new System.Drawing.Point(92, 191);
@@ -183,14 +187,14 @@
             // 
             this.bDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bDate.BackColor = System.Drawing.Color.SeaGreen;
-            this.bDate.BorderRadius = 0;
+            this.bDate.BorderRadius = 20;
             this.bDate.ForeColor = System.Drawing.Color.White;
             this.bDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.bDate.FormatCustom = null;
-            this.bDate.Location = new System.Drawing.Point(-141, 87);
+            this.bDate.Location = new System.Drawing.Point(12, 89);
             this.bDate.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.bDate.Name = "bDate";
-            this.bDate.Size = new System.Drawing.Size(472, 36);
+            this.bDate.Size = new System.Drawing.Size(319, 36);
             this.bDate.TabIndex = 14;
             this.bDate.Value = new System.DateTime(2021, 4, 30, 15, 31, 54, 530);
             // 
@@ -231,6 +235,7 @@
             // 
             this.bCatagory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bCatagory.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bCatagory.Enabled = false;
             this.bCatagory.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCatagory.ForeColor = System.Drawing.Color.White;
             this.bCatagory.HintForeColor = System.Drawing.Color.Empty;

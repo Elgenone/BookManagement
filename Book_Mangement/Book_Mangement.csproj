@@ -185,6 +185,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DbBook.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\images1.jpeg" />
     <None Include="Resources\kTKoB87zc.png" />
     <None Include="Resources\images.jpeg" />
   </ItemGroup>
