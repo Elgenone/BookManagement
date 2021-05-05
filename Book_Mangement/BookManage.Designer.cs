@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookManage));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookManage));
             this.header = new System.Windows.Forms.Panel();
+            this.search = new Bunifu.Framework.UI.BunifuTextbox();
             this.bigScreen = new Bunifu.Framework.UI.BunifuImageButton();
             this.smallScreen = new Bunifu.Framework.UI.BunifuImageButton();
             this.eitButton = new Bunifu.Framework.UI.BunifuImageButton();
@@ -47,7 +48,6 @@
             this.bookdata = new System.Windows.Forms.DataGridView();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.search = new Bunifu.Framework.UI.BunifuTextbox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bigScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smallScreen)).BeginInit();
@@ -74,6 +74,24 @@
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             this.header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Header_MouseMove);
             this.header.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Header_MouseUp);
+            // 
+            // search
+            // 
+            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.search.BackColor = System.Drawing.Color.Silver;
+            this.search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search.BackgroundImage")));
+            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition1.SetDecoration(this.search, BunifuAnimatorNS.DecorationType.None);
+            this.search.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.search.Icon = ((System.Drawing.Image)(resources.GetObject("search.Icon")));
+            this.search.Location = new System.Drawing.Point(433, 9);
+            this.search.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(229, 23);
+            this.search.TabIndex = 1;
+            this.search.text = "";
+            this.search.OnTextChange += new System.EventHandler(this.Search_OnTextChange);
             // 
             // bigScreen
             // 
@@ -322,23 +340,6 @@
             animation1.TransparencyCoeff = 0F;
             this.bunifuTransition1.DefaultAnimation = animation1;
             this.bunifuTransition1.Interval = 5;
-            // 
-            // search
-            // 
-            this.search.BackColor = System.Drawing.Color.Silver;
-            this.search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search.BackgroundImage")));
-            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuTransition1.SetDecoration(this.search, BunifuAnimatorNS.DecorationType.None);
-            this.search.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.search.Icon = ((System.Drawing.Image)(resources.GetObject("search.Icon")));
-            this.search.Location = new System.Drawing.Point(433, 9);
-            this.search.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(229, 23);
-            this.search.TabIndex = 1;
-            this.search.text = "";
-            this.search.OnTextChange += new System.EventHandler(this.Search_OnTextChange);
             // 
             // BookManage
             // 
