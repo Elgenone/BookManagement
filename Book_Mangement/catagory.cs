@@ -32,7 +32,7 @@ namespace Book_Mangement
             if (cat.Text != "")
             {
                 con.ConnectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;
-                AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;
+                AttachDbFilename=|DataDirectory|\DbBook.mdf;
                 Integrated Security=True"
                 );
                 con.Open();

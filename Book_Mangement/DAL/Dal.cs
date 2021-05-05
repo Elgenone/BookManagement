@@ -14,7 +14,7 @@ namespace Book_Mangement.DAL
         // cnsteractor
        public Dal()
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;Integrated Security=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DbBook.mdf;Integrated Security=True");
         }
 
         //open connection
