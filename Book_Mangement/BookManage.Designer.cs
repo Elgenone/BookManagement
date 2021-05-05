@@ -47,6 +47,7 @@
             this.bookdata = new System.Windows.Forms.DataGridView();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.search = new Bunifu.Framework.UI.BunifuTextbox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bigScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smallScreen)).BeginInit();
@@ -59,6 +60,7 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.Gainsboro;
+            this.header.Controls.Add(this.search);
             this.header.Controls.Add(this.bigScreen);
             this.header.Controls.Add(this.smallScreen);
             this.header.Controls.Add(this.eitButton);
@@ -296,8 +298,8 @@
             // 
             // bunifuElipse1
             // 
-            this.bunifuElipse1.ElipseRadius = 20;
-            this.bunifuElipse1.TargetControl = this;
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this.search;
             // 
             // bunifuTransition1
             // 
@@ -320,6 +322,23 @@
             animation1.TransparencyCoeff = 0F;
             this.bunifuTransition1.DefaultAnimation = animation1;
             this.bunifuTransition1.Interval = 5;
+            // 
+            // search
+            // 
+            this.search.BackColor = System.Drawing.Color.Silver;
+            this.search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search.BackgroundImage")));
+            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition1.SetDecoration(this.search, BunifuAnimatorNS.DecorationType.None);
+            this.search.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.search.Icon = ((System.Drawing.Image)(resources.GetObject("search.Icon")));
+            this.search.Location = new System.Drawing.Point(433, 9);
+            this.search.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(229, 23);
+            this.search.TabIndex = 1;
+            this.search.text = "";
+            this.search.OnTextChange += new System.EventHandler(this.Search_OnTextChange);
             // 
             // BookManage
             // 
@@ -366,6 +385,7 @@
         private System.Windows.Forms.DataGridView bookdata;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private BunifuAnimatorNS.BunifuTransition bunifuTransition1;
+        private Bunifu.Framework.UI.BunifuTextbox search;
     }
 }
 

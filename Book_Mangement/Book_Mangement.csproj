@@ -71,12 +71,15 @@
     <Compile Include="addBook.Designer.cs">
       <DependentUpon>addBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="BL\Book.cs" />
+    <Compile Include="BL\BookCategory.cs" />
     <Compile Include="catagory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="catagory.Designer.cs">
       <DependentUpon>catagory.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Dal.cs" />
     <Compile Include="DialogDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,8 +110,15 @@
     <Compile Include="BookManage.Designer.cs">
       <DependentUpon>BookManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BL\User.cs" />
     <EmbeddedResource Include="addBook.resx">
       <DependentUpon>addBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookManage.resx">
       <DependentUpon>BookManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

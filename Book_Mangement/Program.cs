@@ -16,7 +16,7 @@ namespace Book_Mangement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BookManage());
+            Application.Run(new login());
         }
     }
 }

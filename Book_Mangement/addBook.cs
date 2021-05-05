@@ -47,22 +47,27 @@ namespace Book_Mangement
         {
             try
             {
-                con.ConnectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;
-                AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;
-                Integrated Security=True"
-                );
-                con.Open();
-                cmd.Connection = con;
-                cmd.CommandText = "select catagory from cat";
-                var rd = cmd.ExecuteReader();
-                while (rd.Read())
-                {
-                    list.Add(Convert.ToString(rd[0]));
-                }
-                for (int i = 0; i < list.LongCount(); i++)
-                {
-                    bcatagoy.Items.Add(list[i]);
-                }
+                BL.BookCategory read = new BL.BookCategory();
+                DataTable dt = new DataTable();
+                dt = read.ReadCategories();
+                bcatagoy.DataSource = dt;
+                bcatagoy.DisplayMember = "catagory";
+                //con.ConnectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;
+                //AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;
+                //Integrated Security=True"
+                //);
+                //con.Open();
+                //cmd.Connection = con;
+                //cmd.CommandText = "select catagory from cat";
+                //var rd = cmd.ExecuteReader();
+                //while (rd.Read())
+                //{
+                //    list.Add(Convert.ToString(rd[0]));
+                //}
+                //for (int i = 0; i < list.LongCount(); i++)
+                //{
+                //    bcatagoy.Items.Add(list[i]);
+                //}
 
             }
             catch (Exception Ex)
@@ -90,25 +95,18 @@ namespace Book_Mangement
                     bCover.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                     var _bCover = ms.ToArray();
 
-                    //sql command
-                    con.ConnectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;
-                AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;
-                Integrated Security=True"
-                    );
-                    con.Open();
-                    cmd.Connection = con;
-                    cmd.CommandText = "insert into book (title,auther,price,catagory,date,rate,cover) " +
-                        "values (@ti,@au,@pr,@cat,@da,@ra,@co)";
-                    cmd.Parameters.AddWithValue("@ti", bName.Text);
-                    cmd.Parameters.AddWithValue("@au", bAuthor.Text);
-                    cmd.Parameters.AddWithValue("@pr", int.Parse(bPrice.Text));
-                    cmd.Parameters.AddWithValue("@cat", bcatagoy.Text);
-                    cmd.Parameters.AddWithValue("@da", bDate.Value);
-                    cmd.Parameters.AddWithValue("@ra", bRate.Value);
-                    cmd.Parameters.AddWithValue("@co", _bCover);
-
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    try
+                    {
+                        //sql command
+                        BL.Book add = new BL.Book();
+                        add.AddBook(bName.Text, bAuthor.Text, int.Parse(bPrice.Text),
+                            bcatagoy.Text, bDate.Value, bRate.Value, _bCover);
+                    }catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "خطا",
+                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                   
 
                     Form dAdd = new DialogAdd();
                     dAdd.Show();
@@ -123,24 +121,27 @@ namespace Book_Mangement
                     var _bCover = ms.ToArray();
 
                     //sql command
-                    con.ConnectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;
-                                            AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;
-                                            Integrated Security=True"
-                                                );
-                    con.Open();
-                    cmd.Connection = con;
-                    cmd.CommandText = "update  book set title = @ti,auther = @au,price = @pr,catagory = @cat,date = @da,rate = @ra,cover = @co where id=@id ";
-                    cmd.Parameters.AddWithValue("@ti", bName.Text);
-                    cmd.Parameters.AddWithValue("@au", bAuthor.Text);
-                    cmd.Parameters.AddWithValue("@pr", int.Parse(bPrice.Text));
-                    cmd.Parameters.AddWithValue("@cat", bcatagoy.Text);
-                    cmd.Parameters.AddWithValue("@da", bDate.Value);
-                    cmd.Parameters.AddWithValue("@ra", bRate.Value);
-                    cmd.Parameters.AddWithValue("@co", _bCover);
-                    cmd.Parameters.AddWithValue("@id", state);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    cmd.Parameters.Clear();
+                    BL.Book update = new BL.Book();
+                    update.EditeBook(bName.Text, bAuthor.Text, int.Parse(bPrice.Text),
+                            bcatagoy.Text, bDate.Value, bRate.Value, _bCover, state);
+                    //con.ConnectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;
+                    //                        AttachDbFilename=F:\FCIH\code\C#\Book_Mangement\Book_Mangement\DbBook.mdf;
+                    //                        Integrated Security=True"
+                    //                            );
+                    //con.Open();
+                    //cmd.Connection = con;
+                    //cmd.CommandText = "update  book set title = @ti,auther = @au,price = @pr,catagory = @cat,date = @da,rate = @ra,cover = @co where id=@id ";
+                    //cmd.Parameters.AddWithValue("@ti", bName.Text);
+                    //cmd.Parameters.AddWithValue("@au", bAuthor.Text);
+                    //cmd.Parameters.AddWithValue("@pr", int.Parse(bPrice.Text));
+                    //cmd.Parameters.AddWithValue("@cat", bcatagoy.Text);
+                    //cmd.Parameters.AddWithValue("@da", bDate.Value);
+                    //cmd.Parameters.AddWithValue("@ra", bRate.Value);
+                    //cmd.Parameters.AddWithValue("@co", _bCover);
+                    //cmd.Parameters.AddWithValue("@id", state);
+                    //cmd.ExecuteNonQuery();
+                    //con.Close();
+                    //cmd.Parameters.Clear();
 
                     Form dEdite = new DialogEdit();
                     dEdite.Show();
